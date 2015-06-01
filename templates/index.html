@@ -1,3 +1,9 @@
+{% set is_home = True %}
+{% set articles_page = articles_home_page %}
+{% set articles_paginator = articles_home_paginator %}
+{% set articles_previous_page = articles_home_previous_page %}
+{% set articles_next_page = articles_home_next_page %}
+
 {% extends "article_list.html" %}
 
 {% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
