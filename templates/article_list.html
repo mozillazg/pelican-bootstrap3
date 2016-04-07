@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+    <ul class="list-unstyled post-list">
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
-            <article>
-                <p>
-                    <span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
+                <li>
+                    <span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time></span>
                     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
-                </p>
-            </article>
-            <hr/>
+                </li>
         {% endfor %}
     {% endif %}
+    </ul>
 
 {% if is_home %}
     {% set USE_PAGER=True %}
